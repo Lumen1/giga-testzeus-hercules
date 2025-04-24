@@ -31,9 +31,9 @@ class GigaChatClient(OpenAIClient):
             credentials=config["api_key"],
             verify_ssl_certs=False,
             model=config["model"],
-            scope=config.get("scope","GIGACHAT_API_CORP"),
-            #timeout=config["timeout"],
-            #verbose=config["verbose"],
+            scope=config.get("scope", "GIGACHAT_API_CORP"),
+            timeout=config.get("timeout", 60),
+            # verbose=config["verbose"],
         )
 
     @staticmethod
