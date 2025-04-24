@@ -487,5 +487,55 @@
                 "seed": 12345
             }
 		}
+	},
+  "gigachat": {
+		"planner_agent": {
+			"model_name": "gigachat",
+			"model_api_key": "",
+			"model_base_url": "https://gigachat.devices.sberbank.ru/api/v1/",
+            "model_api_type": "gigachat",
+            "llm_config_params": {
+                "cache_seed": null,
+                "temperature": 0.0,
+
+                "seed": 12345
+            }
+		},
+		"nav_agent": {
+            "model_name": "gigachat",
+			"model_api_key": "",
+			"model_base_url": "https://gigachat.devices.sberbank.ru/api/v1/",
+            "model_api_type": "gigachat",
+            "llm_config_params": {
+                "cache_seed": null,
+                "temperature": 0.0,
+
+                "seed": 12345
+            }
+		},
+		"mem_agent": {
+            "model_name": "gigachat",
+			"model_api_key": "",
+			"model_base_url": "https://gigachat.devices.sberbank.ru/api/v1/",
+            "model_api_type": "gigachat",
+            "llm_config_params": {
+                "cache_seed": null,
+                "temperature": 0.0,
+
+                "seed": 12345
+            }
+		},
+		"helper_agent": {
+            "model_name": "gigachat",
+			"model_api_key": "",
+			"model_base_url": "https://gigachat.devices.sberbank.ru/api/v1/",
+            "model_api_type": "gigachat",
+            "llm_config_params": {
+                "cache_seed": null,
+                "temperature": 0.0,
+
+                "seed": 12345
+            }
+		}
 	}
 }

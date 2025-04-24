@@ -3,6 +3,7 @@ import json
 import os
 
 import aiofiles
+from typing import Any, Callable, Optional, Protocol, Union
 from junit2htmlreport.runner import run as prepare_html
 from testzeus_hercules.config import get_global_conf, set_global_conf
 from testzeus_hercules.core.runner import SingleCommandInputRunner
@@ -13,7 +14,23 @@ from testzeus_hercules.utils.gherkin_helper import (
 )
 from testzeus_hercules.utils.junit_helper import JUnitXMLGenerator, build_junit_xml
 from testzeus_hercules.utils.logger import logger
+from testzeus_hercules.utils.gigachat_client import GigaChatClient
 
+import autogen.oai.client
+
+def _register_default_client_giga(self, config: dict[str, Any], openai_config: dict[str, Any]) -> None:
+    openai_config = {**openai_config, **{k: v for k, v in config.items() if k in self.openai_kwargs}}
+    api_type = config.get("api_type")
+    model_client_cls_name = config.get("model_client_cls")
+    response_format = config.get("response_format")
+    if api_type is not None and api_type.startswith("gigachat"):
+        config["model_client_cls"] = "GigaChatClient"
+        self._clients.append(autogen.oai.client.PlaceHolderClient(config))
+        self.register_model_client(model_client_cls=GigaChatClient)
+    else:
+        autogen.oai.client.OpenAIWrapper._register_default_client(self, config, openai_config)
+
+autogen.oai.client.OpenAIWrapper._register_default_client = _register_default_client_giga
 
 async def sequential_process() -> None:
     """

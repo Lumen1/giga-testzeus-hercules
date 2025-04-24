@@ -15,6 +15,7 @@ ModelAPIType = Literal[
     "deepseek",  # DeepSeek AI
     "bedrock",  # AWS Bedrock
     # Add new API types here
+    "gigachat",
 ]
 
 

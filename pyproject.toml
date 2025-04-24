@@ -14,10 +14,12 @@ exclude = [
 ]
 
 [tool.poetry.dependencies]
-python = "<3.13,>=3.10"
+python = "<3.14,>=3.10"
 nest-asyncio = "^1.6.0"
 
- 
+langchain-gigachat =">=0.3.10,<0.4.0"
+langchain-community =">=0.3.21,<0.3.22"
+
 pillow = "^10.3.0"
 playwright = "<=1.49.0"
 pydantic = "^2.6.2"

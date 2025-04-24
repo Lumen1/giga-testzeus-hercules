@@ -117,7 +117,7 @@ run-interactive:       ## run-interactive testzeus_hercules.
 
 .PHONY: setup-poetry
 setup-poetry:       ## setup poetry.
-	curl -sSL https://install.python-poetry.org | python3.11 -
+	curl -sSL https://install.python-poetry.org | python -
 	poetry config virtualenvs.in-project true
 
 .PHONY: docker-build
